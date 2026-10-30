@@ -1,5 +1,7 @@
 # Note title
 
+Fuller copy with learning goals: [`templates/note.md`](../templates/note.md).
+
 - Date:
 - Environment:
 - Goal:
