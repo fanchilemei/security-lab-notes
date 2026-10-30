@@ -1,49 +1,50 @@
 # security-lab-notes
 
-Personal hub for **defensive** cybersecurity lab notes: environments, commands that helped, pitfalls, and structured CVE *study* notes.
+Personal security study notes. This repository is a place to record concepts, isolated lab setup, patch-triage checklists, and links to public documentation.
 
-This repository is for learning and documentation only. It is **not** a place for exploit code, proof-of-concepts, payloads, or attack procedures.
+The notes are for learning and defense: how systems are supposed to work, how to configure them safely, and how public advisories describe impact and fixes.
 
-## Suggested layout
+## No exploit code
 
-```text
-labs/          # Lab environment notes (what you set up, why, how you verify it safely)
-cves/          # Per-CVE study notes (impact, affected versions, patches, mitigations)
-notes/         # Cross-cutting notes (tooling, ops pitfalls, checklists)
-```
+Do not add any of the following:
 
-Create folders as you need them. Keep each note self-contained and dated when useful.
+- Exploit code, proof-of-concept exploits, or payloads
+- Malware or weaponized scripts
+- Step-by-step attack procedures or reproduction guides
+- Reverse-engineering walkthroughs
+- Intentionally vulnerable applications, or instructions for building them
 
-## How to contribute notes
+A study note may name a vulnerability, state its impact in plain language, and point at the vendor advisory and the patched version. It stops there.
 
-1. Add a Markdown file under the matching folder.
-2. Start with context: goal, environment (OS, versions), and what “done” looks like.
-3. Prefer **commands that inspect or harden** over anything that attacks a target.
-4. For CVE study notes, use a consistent template, for example:
+Use this material only on systems you own or are explicitly allowed to administer. Keep lab services bound to localhost. Do not commit secrets, credentials, private keys, or anyone else's data.
 
-```markdown
-# CVE-YYYY-NNNNN (short title)
+## Layout
 
-- Published / NVD link:
-- Affected products & versions:
-- Root cause (high level):
-- Impact (confidentiality / integrity / availability):
-- Official fix / advisory:
-- Mitigations & detection ideas:
-- What I verified in a closed lab (no public exposure):
-- References:
-```
+| Path | Purpose |
+| --- | --- |
+| [`notes/`](notes/README.md) | Conceptual study notes and checklists |
+| [`labs/`](labs/README.md) | Records of isolated study environments and what you verified |
+| [`cves/`](cves/) | Per-advisory study notes: affected versions, impact, official fix |
+| [`references/`](references/README.md) | Index of public documentation to read |
+| [`templates/`](templates/README.md) | Empty outlines to copy when starting a note |
+| [`scripts/`](scripts/) | Small local checks (versions, environment sanity). No scanning. |
 
-5. Record mistakes and false starts in a short “Pitfalls” section so future-you avoids them.
+## How to add a note
 
-## Safety and disclaimer
+1. Copy a file from [`templates/`](templates/README.md) into the matching folder.
+2. Fill in the goal, the environment, and what "done" means.
+3. Prefer commands that inspect or harden a system you administer.
+4. Link the public document you actually read.
+5. Add a short pitfalls section when something confused you.
 
-- **Defensive and educational use only.** Do not use this material to attack systems you do not own or lack explicit written permission to test.
+Each folder README repeats the local rules for that kind of note.
+
+## Safety
+
+- Defensive and educational use only.
 - Prefer local or isolated labs. Do not expose lab services to the public internet.
-- Do not commit secrets, credentials, private keys, or customer data.
-- Do not add exploit PoCs, weaponized scripts, or step-by-step attack reproduction here.
-- When studying public CVEs, stick to vendor advisories, patches, and high-level root-cause discussion.
+- When studying a public CVE, stick to vendor advisories, patches, and high-level impact. The outline lives in [`cves/_template.md`](cves/_template.md).
 
 ## License
 
-Add a license if you plan to share widely. Until then, treat contents as personal notes.
+Personal notes. Add a license before treating this tree as a tutorial other people should reuse.
