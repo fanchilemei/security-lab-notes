@@ -1,0 +1,12 @@
+.DS_Store
+Thumbs.db
+*.swp
+.env
+.env.*
+!.env.example
+secrets/
+*.pem
+*.key
+id_rsa*
+.vscode/
+.idea/
